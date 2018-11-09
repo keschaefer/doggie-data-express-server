@@ -1,0 +1,22 @@
+[{
+   "id": "1",
+   "business_name": "Ace Hardware",
+   "address": "1030 E 9th Ave, Denver, CO 80218",
+   "description": "Shop for all your home repair needs with your pup at your side!",
+   "category": "shop"
+},
+{
+   "id": "2",
+   "business_name": "Denver Beer Company",
+   "address": "1695 Platte St, Denver, CO 80202",
+   "description": "Sip a beer with your pup on the sun-filled patio at Denver Beer Co.!",
+   "category": "brewery"
+},
+{
+   "id": "3",
+   "business_name": "Mount Falcon Castle Trail",
+   "address": "Castle Trail, Morrison, CO 80465",
+   "description": "Take your pup along on this beautiful and low-impact hike right outside of Denver",
+   "category": "trails"
+}
+]
