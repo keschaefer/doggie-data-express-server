@@ -11,8 +11,14 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(cors())
 
-app.get('/locations', (req, res) =>{
+app.get('/', (req, res) =>{
    res.send({locations: locations})
+})
+
+app.post('/', (req, res, next) => {
+   let newLocation = req.body 
+   locations.push(newLocation)
+   res.send(newLocation)
 })
 
 app.use((req, res, next) => {

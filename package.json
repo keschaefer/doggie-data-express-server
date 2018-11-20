@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon doggie-server.js",
+    "dev": "nodemon doggie-server.js",
+    "start": "node doggie-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
