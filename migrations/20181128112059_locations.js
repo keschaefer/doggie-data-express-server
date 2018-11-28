@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
       location.string('location_address')
       location.string('description')
       location.string('category')
-      location.integer('category')
+      location.integer('ranking')
       location.string('image')
    })
 };
