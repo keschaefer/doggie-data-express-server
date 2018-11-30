@@ -6,13 +6,21 @@ const port = process.env.PORT || 3001
 const bodyParser = require('body-parser')
 const cors = require('cors')
 let locations = require('./data.json')
+const queries = require('./queries.js')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(cors())
 
-app.get('/', (req, res) =>{
-   res.send({locations: locations})
+app.get('/', (req, res) => {
+   queries.listAll().then(locations => {res.send(locations)
+   })
+})
+
+app.post('/', (req, res) => {
+   queries.addLocation(req.body).then(location => {res.send(location)
+      console.log(location)
+   })
 })
 
 app.get('/:id', (req, res) =>{
@@ -27,11 +35,11 @@ app.get('/:id', (req, res) =>{
    }
 })
 
-app.post('/', (req, res, next) => {
-   let newLocation = req.body 
-   locations.push(newLocation)
-   res.send(newLocation)
-})
+// app.post('/', (req, res, next) => {
+//    let newLocation = req.body 
+//    locations.push(newLocation)
+//    res.send(newLocation)
+// })
 
 app.put('/:id', (req, res, next) => {
    let { id } = req.params
