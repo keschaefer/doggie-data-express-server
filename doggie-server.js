@@ -23,16 +23,9 @@ app.post('/', (req, res) => {
    })
 })
 
-app.get('/:id', (req, res) =>{
-   let id = Number(req.params.id)
-   let locationById = locations.find(location => {
-      return location.id === id
-   })
-   if (locationById) {
-   res.send({location: locationById})
-   } else {
-      res.status(404).send({ error: { message: "Sorry that ID does not exist" }})
-   }
+app.delete('/', (req, res) => {
+   console.log(req.body)
+   queries.deleteLocation(req.body).then(res.status(204).send({message : 'deleted'}))
 })
 
 // app.post('/', (req, res, next) => {
@@ -41,27 +34,32 @@ app.get('/:id', (req, res) =>{
 //    res.send(newLocation)
 // })
 
-app.put('/:id', (req, res, next) => {
-   let { id } = req.params
-   let { description } = req.body
-   let newObj = locations.map(location => {
-      if (location.id == id) {
-         location.description = description
-      }
-      return location
-   })
-   location = newObj 
-   res.send({locations})
-})
+// app.get('/:id', (req, res) =>{
+//    let id = Number(req.params.id)
+//    let locationById = locations.find(location => {
+//       return location.id === id
+//    })
+//    if (locationById) {
+//    res.send({location: locationById})
+//    } else {
+//       res.status(404).send({ error: { message: "Sorry that ID does not exist" }})
+//    }
+// })
 
-app.delete('/:id', (req, res) => {
-   let { id } = req.params
-   let newObj = locations.filter(location => {
-      return location.id != id
-   })
-   locations = newObj
-   res.send({locations})
-})
+// app.put('/:id', (req, res, next) => {
+//    let { id } = req.params
+//    let { description } = req.body
+//    let newObj = locations.map(location => {
+//       if (location.id == id) {
+//          location.description = description
+//       }
+//       return location
+//    })
+//    location = newObj 
+//    res.send({locations})
+// })
+
+
 
 app.use((req, res, next) => {
    res.status(404).json({ error: { message: 'data not found' }})
