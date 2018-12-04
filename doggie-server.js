@@ -24,8 +24,7 @@ app.post('/', (req, res) => {
 })
 
 app.delete('/', (req, res) => {
-   console.log(req.body)
-   queries.deleteLocation(req.body).then(res.status(204).send({message : 'deleted'}))
+   queries.deleteLocation(req.body.id).then(location => {res.send(location)})
 })
 
 // app.post('/', (req, res, next) => {
