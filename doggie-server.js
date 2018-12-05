@@ -19,12 +19,11 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
    queries.addLocation(req.body).then(location => {res.send(location)
-      console.log(location)
    })
 })
 
 app.delete('/', (req, res) => {
-   queries.deleteLocation(req.body.id).then(location => {res.send(location)})
+   queries.deleteLocation(req.body.id).then(res.send({'message': 'location deleted'}))
 })
 
 // app.post('/', (req, res, next) => {

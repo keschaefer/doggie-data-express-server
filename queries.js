@@ -8,7 +8,7 @@ module.exports = {
       return database('locations').insert(location).returning('*')
    },
    deleteLocation(id) {
-      return database('locations').where({id: id}).delete().returning('*')
+      return database('locations').where({id: id}).delete()
    }
 }
 
